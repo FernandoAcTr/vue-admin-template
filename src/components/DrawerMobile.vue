@@ -1,14 +1,5 @@
 <template>
-  <q-drawer
-    show-if-above
-    :mini="uiStore.miniState"
-    @mouseover="uiStore.maximizeDrawer"
-    @mouseout="uiStore.minifyDrawer"
-    :width="200"
-    :breakpoint="500"
-    bordered
-    class="bg-grey-3"
-  >
+  <q-drawer show-if-above v-model="uiStore.drawer" bordered class="bg-grey-3">
     <DrawerContent />
   </q-drawer>
 </template>
