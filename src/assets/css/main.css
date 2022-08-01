@@ -1,0 +1,6 @@
+.q-drawer,
+.q-header,
+.q-page-container,
+.q-item {
+  transition: all .3s;
+}
