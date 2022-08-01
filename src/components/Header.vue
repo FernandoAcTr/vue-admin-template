@@ -3,12 +3,7 @@
     <q-toolbar>
       <q-btn dense flat round icon="menu" @click="uiStore.toggleDrawer" />
 
-      <q-toolbar-title>
-        <q-avatar>
-          <img src="https://cdn.quasar.dev/logo-v2/svg/logo.svg" />
-        </q-avatar>
-        Title
-      </q-toolbar-title>
+      <q-toolbar-title> Title </q-toolbar-title>
     </q-toolbar>
   </q-header>
 </template>
