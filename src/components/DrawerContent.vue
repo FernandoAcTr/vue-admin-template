@@ -1,7 +1,7 @@
 <template>
   <q-scroll-area class="fit">
-    <q-list padding>
-      <q-item clickable v-ripple class="justify-start pl-xs">
+    <q-list padding class="menu-list">
+      <q-item clickable v-ripple>
         <q-item-section avatar>
           <q-icon name="inbox" />
         </q-item-section>
@@ -36,4 +36,20 @@
       </q-item>
     </q-list>
   </q-scroll-area>
+
+  <div class="q-mini-drawer-hide absolute" style="top: 60px; right: -17px">
+    <q-btn
+      dense
+      round
+      unelevated
+      color="accent"
+      @click="uiStore.togglePinDrawer"
+      :icon="uiStore.pinDrawer ? 'chevron_left' : 'chevron_right'"
+    />
+  </div>
 </template>
+
+<script setup lang="ts">
+  import { useUIStore } from '@/stores/ui'
+  const uiStore = useUIStore()
+</script>

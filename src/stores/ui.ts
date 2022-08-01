@@ -5,17 +5,23 @@ export const useUIStore = defineStore({
   state: () => ({
     drawer: false,
     miniState: false,
+    pinDrawer: false,
   }),
   actions: {
     toggleDrawer() {
       this.drawer = !this.drawer
+    },
+    toggleMini() {
       this.miniState = !this.miniState
     },
+    togglePinDrawer() {
+      this.pinDrawer = !this.pinDrawer
+    },
     minifyDrawer() {
-      if (!this.drawer) this.miniState = true
+      if (!this.pinDrawer) this.miniState = true
     },
     maximizeDrawer() {
-      if (!this.drawer) this.miniState = false
+      if (!this.pinDrawer) this.miniState = false
     },
   },
 })

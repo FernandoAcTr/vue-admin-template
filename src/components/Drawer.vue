@@ -1,6 +1,7 @@
 <template>
   <q-drawer
     show-if-above
+    v-model="uiStore.drawer"
     :mini="uiStore.miniState"
     @mouseover="uiStore.maximizeDrawer"
     @mouseout="uiStore.minifyDrawer"
