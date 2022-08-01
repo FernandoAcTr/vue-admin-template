@@ -1,9 +1,9 @@
 <template>
-  <q-layout view="lHh Lpr lff" class="shadow-2 rounded-borders">
+  <q-layout view="lHh Lpr lff">
     <Header />
     <Drawer />
 
-    <q-page-container>
+    <q-page-container style="padding-top: 60px;">
       <router-view></router-view>
     </q-page-container>
   </q-layout>

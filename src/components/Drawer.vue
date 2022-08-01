@@ -7,8 +7,8 @@
     @mouseout="uiStore.minifyDrawer"
     :width="200"
     :breakpoint="500"
+    class="bg-grey-2"
     bordered
-    class="bg-grey-3"
   >
     <DrawerContent />
   </q-drawer>
