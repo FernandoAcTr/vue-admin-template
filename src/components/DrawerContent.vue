@@ -59,14 +59,12 @@
 <script setup lang="ts">
   import { useUIStore } from '@/stores/ui'
   import { ref } from 'vue'
+  import { useMatchMedia } from '../composables/useMatchMedia'
   const uiStore = useUIStore()
 
   const showTitle = ref(false)
 
-  var x = window.matchMedia('(max-width: 640px)')
-  const definedIfShowTitle = () => (showTitle.value = x.matches)
-  definedIfShowTitle()
-  x.addEventListener('change', definedIfShowTitle)
+  useMatchMedia(640, (isBelowSize) => (showTitle.value = isBelowSize))
 </script>
 
 <style scoped>
