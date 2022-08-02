@@ -5,7 +5,7 @@ export const useUIStore = defineStore({
   state: () => ({
     drawer: false,
     miniState: false,
-    pinDrawer: false,
+    pinDrawer: true,
   }),
   actions: {
     toggleDrawer() {

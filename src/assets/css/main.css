@@ -1,3 +1,21 @@
 img {
   max-width: 100%;
 }
+
+.q-drawer .q-item .q-icon:not(.q-expansion-item__toggle-icon) {
+  font-size: 20px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+  color: gray;
+  box-shadow: -3px 4px 20px -7px rgba(0, 0, 0, 0.6);
+}
+
+.q-drawer .q-item {
+  justify-content: left !important;
+  padding-left: 15px !important;
+}
+
+.menu-list .q-item {
+  border-radius: 0 32px 32px 0;
+}

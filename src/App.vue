@@ -14,6 +14,6 @@
 
 <script setup lang="ts">
   import Breadcrumbs from './components/Breadcrumbs.vue'
-  import Drawer from './components/Drawer.vue'
+  import Drawer from '@/components/Drawer/Drawer.vue'
   import Header from './components/Header.vue'
 </script>
