@@ -1,19 +1,81 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Dashboard from '../views/Dashboard.vue'
+import { Routes } from './routes'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
+      name: Routes.Dashboard,
+      component: Dashboard,
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    {
+      path: '/maps',
+      name: 'Maps',
+      children: [
+        {
+          path: 'map',
+          name: Routes.Map,
+          component: () => import('../views/Map.vue'),
+        },
+        {
+          path: 'map-marker',
+          name: Routes.MapMarker,
+          component: () => import('../views/MapMarker.vue'),
+        },
+        {
+          path: 'street-view',
+          name: Routes.StreetView,
+          component: () => import('../views/StreetView.vue'),
+        },
+      ],
+    },
+    {
+      path: '/tables',
+      name: Routes.Tables,
+      component: () => import('../views/Tables.vue'),
+    },
+    {
+      path: '/tree-tables',
+      name: Routes.TreeTables,
+      component: () => import('../views/TreeTables.vue'),
+    },
+    {
+      path: '/charts',
+      name: Routes.Charts,
+      component: () => import('../views/Charts.vue'),
+    },
+    {
+      path: '/cards',
+      name: Routes.Cards,
+      component: () => import('../views/Cards.vue'),
+    },
+    {
+      path: '/contact',
+      name: Routes.Contact,
+      component: () => import('../views/Contact.vue'),
+    },
+    {
+      path: '/calendar',
+      name: Routes.Calendar,
+      component: () => import('../views/Calendar.vue'),
+    },
+    {
+      path: '/taskboard',
+      name: Routes.Taskboard,
+      component: () => import('../views/Taskboard.vue'),
+    },
+    {
+      path: '/pagination',
+      name: Routes.Pagination,
+      component: () => import('../views/Pagination.vue'),
+    },
+    {
+      path: '/products',
+      name: Routes.Products,
+      component: () => import('../views/Products.vue'),
+    },
   ],
 })
 
