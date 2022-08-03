@@ -31,9 +31,9 @@
 
 <script setup lang="ts">
   import { onMounted } from 'vue'
-  import * as echarts from 'echarts'
+  import echarts, { type ECOption } from '@/plugins/eacharts'
 
-  const BarChartOptions = {
+  const BarChartOptions: ECOption = {
     tooltip: { show: true },
     title: { show: true, textStyle: { color: 'rgba(0, 0, 0 , .87)', fontFamily: 'sans-serif' } },
     grid: { containLabel: true, bottom: '10%', top: '5%' },
@@ -44,7 +44,7 @@
       axisTick: {
         show: true,
         alignWithLabel: true,
-        lineStyle: { show: true, color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
+        lineStyle: { color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
       },
       axisLabel: { show: false },
     },
@@ -56,17 +56,17 @@
       splitLine: { lineStyle: { type: 'dashed' } },
       axisTick: {
         show: true,
-        lineStyle: { show: true, color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
+        lineStyle: { color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
       },
     },
     series: [
       {
         type: 'bar',
         barGap: '-100%',
-        itemStyle: { normal: { color: 'rgba(0,0,0,0.1)' } },
+        itemStyle: { color: 'rgba(0,0,0,0.1)' },
         barWidth: '50%',
       },
-      { barWidth: '50%', type: 'bar', itemStyle: { normal: { color: '#ffffff' } } },
+      { barWidth: '50%', type: 'bar', itemStyle: { color: '#ffffff' } },
     ],
     dataset: {
       source: [
@@ -130,7 +130,7 @@
     },
   }
 
-  const LineChartOptions = {
+  const LineChartOptions: ECOption = {
     tooltip: { show: true },
     title: { show: true, textStyle: { color: 'rgba(0, 0, 0 , .87)', fontFamily: 'sans-serif' } },
     grid: { containLabel: true, left: '0', bottom: '0', right: '0' },
@@ -141,7 +141,7 @@
       axisTick: {
         show: true,
         alignWithLabel: true,
-        lineStyle: { show: true, color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
+        lineStyle: { color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
       },
       axisLabel: { show: false },
       boundaryGap: false,
@@ -154,7 +154,7 @@
       splitLine: { lineStyle: { type: 'dashed' } },
       axisTick: {
         show: true,
-        lineStyle: { show: true, color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
+        lineStyle: { color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
       },
     },
     series: [{ type: 'line', areaStyle: {}, smooth: true }],
@@ -201,7 +201,7 @@
     color: ['#2196f3'],
   }
 
-  const LineChart2Options = {
+  const LineChart2Options: ECOption = {
     tooltip: { show: true },
     title: { show: true, textStyle: { color: 'rgba(0, 0, 0 , .87)', fontFamily: 'sans-serif' } },
     grid: { containLabel: true, left: '0', bottom: '0', right: '0' },
@@ -212,7 +212,7 @@
       axisTick: {
         show: true,
         alignWithLabel: true,
-        lineStyle: { show: true, color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
+        lineStyle: { color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
       },
       axisLabel: { show: false },
       boundaryGap: false,
@@ -225,7 +225,7 @@
       splitLine: { lineStyle: { type: 'dashed' } },
       axisTick: {
         show: true,
-        lineStyle: { show: true, color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
+        lineStyle: { color: 'rgba(0, 0, 0 , .54)', type: 'dashed' },
       },
     },
     series: [{ type: 'line', areaStyle: {}, smooth: false }],
