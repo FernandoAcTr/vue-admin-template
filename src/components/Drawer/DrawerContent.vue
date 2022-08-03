@@ -42,14 +42,6 @@
         <q-item-section> Tables </q-item-section>
       </q-item>
 
-      <q-item clickable v-ripple :to="{ name: Routes.TreeTables }">
-        <q-item-section avatar>
-          <q-icon name="list" />
-        </q-item-section>
-
-        <q-item-section> Tree Tables </q-item-section>
-      </q-item>
-
       <q-item clickable v-ripple :to="{ name: Routes.Charts }">
         <q-item-section avatar>
           <q-icon name="table_chart" />

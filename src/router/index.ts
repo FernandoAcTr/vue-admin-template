@@ -37,11 +37,6 @@ const router = createRouter({
       component: () => import('../views/Tables/Tables.vue'),
     },
     {
-      path: '/tree-tables',
-      name: Routes.TreeTables,
-      component: () => import('../views/TreeTables.vue'),
-    },
-    {
       path: '/charts',
       name: Routes.Charts,
       component: () => import('../views/Charts.vue'),
