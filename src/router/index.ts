@@ -49,7 +49,7 @@ const router = createRouter({
     {
       path: '/contact',
       name: Routes.Contact,
-      component: () => import('../views/Contact.vue'),
+      component: () => import('../views/Contact/Contact.vue'),
     },
     {
       path: '/calendar',
