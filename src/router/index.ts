@@ -34,7 +34,7 @@ const router = createRouter({
     {
       path: '/tables',
       name: Routes.Tables,
-      component: () => import('../views/Tables.vue'),
+      component: () => import('../views/Tables/Tables.vue'),
     },
     {
       path: '/tree-tables',
