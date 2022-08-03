@@ -1,5 +1,6 @@
 <template>
   <q-page class="q-pa-sm">
+    <h5 class="q-mt-none">Dashboard</h5>
     <card-social icon_position="left" />
     <card-social icon_position="right" class="q-mt-sm" />
 
