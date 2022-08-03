@@ -121,7 +121,7 @@
 
   const showTitle = ref(false)
 
-  useMatchMedia(640, (isBelowSize) => (showTitle.value = isBelowSize))
+  useMatchMedia(500, (isBelowSize) => (showTitle.value = isBelowSize))
 </script>
 
 <style scoped>
