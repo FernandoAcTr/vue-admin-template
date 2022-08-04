@@ -9,6 +9,7 @@ import router from './router'
 import '@quasar/extras/roboto-font/roboto-font.css'
 import '@quasar/extras/material-icons/material-icons.css'
 import 'quasar/dist/quasar.css'
+import '/node_modules/qalendar/dist/style.css'
 import './assets/css/main.css'
 
 const app = createApp(App)
