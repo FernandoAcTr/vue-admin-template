@@ -44,7 +44,7 @@
 
       <q-item clickable v-ripple :to="{ name: Routes.Charts }">
         <q-item-section avatar>
-          <q-icon name="table_chart" />
+          <q-icon name="leaderboard" />
         </q-item-section>
 
         <q-item-section> Charts </q-item-section>

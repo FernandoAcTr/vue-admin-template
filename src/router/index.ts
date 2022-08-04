@@ -39,7 +39,7 @@ const router = createRouter({
     {
       path: '/charts',
       name: Routes.Charts,
-      component: () => import('../views/Charts.vue'),
+      component: () => import('../views/Charts/Charts.vue'),
     },
     {
       path: '/cards',

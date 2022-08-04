@@ -1,17 +1,27 @@
 import * as echarts from 'echarts/core'
-import { BarChart, LineChart, type BarSeriesOption, type LineSeriesOption } from 'echarts/charts'
+import { CanvasRenderer } from 'echarts/renderers'
+import { BarChart, LineChart, GaugeChart, PieChart, ScatterChart } from 'echarts/charts'
+import type {
+  BarSeriesOption,
+  LineSeriesOption,
+  GaugeSeriesOption,
+  PieSeriesOption,
+  ScatterSeriesOption,
+} from 'echarts/charts'
+import type {
+  TitleComponentOption,
+  TooltipComponentOption,
+  GridComponentOption,
+  DatasetComponentOption,
+} from 'echarts/components'
 import {
   TitleComponent,
-  type TitleComponentOption,
   TooltipComponent,
-  type TooltipComponentOption,
   GridComponent,
-  type GridComponentOption,
   DatasetComponent,
-  type DatasetComponentOption,
   TransformComponent,
+  LegendComponent
 } from 'echarts/components'
-import { CanvasRenderer } from 'echarts/renderers'
 
 echarts.use([
   TitleComponent,
@@ -19,9 +29,13 @@ echarts.use([
   GridComponent,
   DatasetComponent,
   TransformComponent,
+  LegendComponent,
   BarChart,
   LineChart,
   CanvasRenderer,
+  GaugeChart,
+  PieChart,
+  ScatterChart,
 ])
 
 export type ECOption = echarts.ComposeOption<
@@ -31,6 +45,9 @@ export type ECOption = echarts.ComposeOption<
   | TooltipComponentOption
   | GridComponentOption
   | DatasetComponentOption
+  | GaugeSeriesOption
+  | PieSeriesOption
+  | ScatterSeriesOption
 >
 
 export default echarts
