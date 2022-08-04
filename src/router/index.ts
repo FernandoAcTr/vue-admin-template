@@ -44,7 +44,7 @@ const router = createRouter({
     {
       path: '/cards',
       name: Routes.Cards,
-      component: () => import('../views/Cards.vue'),
+      component: () => import('../views/Cards/Cards.vue'),
     },
     {
       path: '/contact',
