@@ -69,7 +69,7 @@ const router = createRouter({
     {
       path: '/products',
       name: Routes.Products,
-      component: () => import('../views/Products.vue'),
+      component: () => import('../views/Products/Products.vue'),
     },
   ],
 })
