@@ -1,104 +1,11 @@
 <template>
-  <q-page class="q-pa-sm bg-white">
-    <h5 class="q-mt-none">Contact</h5>
-    <q-resize-observer @resize="onResize" />
+  <h5 class="q-mt-none">Contact</h5>
+  <q-resize-observer @resize="onResize" />
 
-    <div class="row" v-if="!$q.screen.lt.sm">
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-        <q-card class="no-border no-border">
-          <q-tab-panels v-model="tab" animated class="bg-white" style="height: 60vh;">
-            <q-tab-panel name="all" class="q-pa-none full-height">
-              <q-list class="">
-                <q-item-label class="text-center q-pa-sm">
-                  <q-input dense rounded outlined v-model="search">
-                    <template v-slot:append>
-                      <q-icon name="search" />
-                    </template>
-                  </q-input>
-                </q-item-label>
-                <q-item-label header class="text-center">{{ contacts_list.length }} CONTACTS</q-item-label>
-
-                <span v-for="(contact, index) in contacts_list" :key="index" @click="selected_contact = contact">
-                  <contact-item
-                    :avatar="contact.avatar"
-                    :name="contact.name"
-                    :position="contact.position"
-                  ></contact-item>
-                </span>
-              </q-list>
-            </q-tab-panel>
-
-            <q-tab-panel name="favorites" class="q-pa-none">
-              <q-list class="">
-                <q-item-label class="text-center q-pa-sm">
-                  <q-input dense rounded outlined v-model="search">
-                    <template v-slot:append>
-                      <q-icon name="search" />
-                    </template>
-                  </q-input>
-                </q-item-label>
-                <q-item-label header class="text-center">{{ favorites_list.length }} Favorites</q-item-label>
-
-                <span v-for="(favorite, index) in favorites_list" :key="index" @click="selected_contact = favorite">
-                  <contact-item
-                    :avatar="favorite.avatar"
-                    :name="favorite.name"
-                    :position="favorite.position"
-                  ></contact-item>
-                </span>
-              </q-list>
-            </q-tab-panel>
-          </q-tab-panels>
-
-          <q-tabs v-model="tab" dense class="bg-grey-3" align="justify">
-            <q-tab name="all" icon="person" class="text-capitalize" label="All"></q-tab>
-            <q-tab name="favorites" icon="star" class="text-capitalize" label="Favorites"></q-tab>
-          </q-tabs>
-        </q-card>
-      </div>
-
-      <div class="col-lg-8 q-pl-xs col-md-8 col-sm-12 col-xs-12">
-        <q-card class="no-border no-border" style="height: 67vh;">
-          <q-toolbar class="text-black">
-            <q-btn round flat class="q-pa-sm">
-              <q-avatar size="80px">
-                <img :src="selected_contact.avatar" />
-              </q-avatar>
-            </q-btn>
-
-            <q-item class="q-subtitle-1 q-pl-md">
-              <q-item-section>
-                <q-item-label lines="1">{{ selected_contact.name }}</q-item-label>
-                <q-item-label caption lines="2">
-                  <span class="text-weight-bold">{{ selected_contact.position }}</span>
-                </q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-space />
-
-            <q-btn round flat icon="star_outline" color="yellow"> </q-btn>
-            <q-btn round flat icon="edit" />
-          </q-toolbar>
-          <q-separator></q-separator>
-
-          <div v-for="(detail, detail_index) in detail_list">
-            <contact-detail-item
-              :icon="detail.icon"
-              :text_color="detail.text_color"
-              :value="selected_contact[detail['field']]"
-              :label="detail.label"
-            ></contact-detail-item>
-
-            <q-separator inset="item" v-if="detail_index != detail_list.length - 1"></q-separator>
-          </div>
-        </q-card>
-      </div>
-    </div>
-
-    <div v-else>
-      <div v-if="Object.keys(selected_contact).length == 0">
-        <q-tab-panels v-model="tab" animated class="bg-white" style="height: 60vh;">
+  <div class="row" v-if="!$q.screen.lt.sm">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <q-card class="no-border no-border">
+        <q-tab-panels v-model="tab" animated class="bg-white" style="height: 60vh">
           <q-tab-panel name="all" class="q-pa-none full-height">
             <q-list class="">
               <q-item-label class="text-center q-pa-sm">
@@ -137,51 +44,138 @@
             </q-list>
           </q-tab-panel>
         </q-tab-panels>
+
         <q-tabs v-model="tab" dense class="bg-grey-3" align="justify">
           <q-tab name="all" icon="person" class="text-capitalize" label="All"></q-tab>
           <q-tab name="favorites" icon="star" class="text-capitalize" label="Favorites"></q-tab>
         </q-tabs>
-      </div>
-      <transition v-else appear enter-active-class="animated bounceInRight">
-        <q-card class="no-border no-border" style="height: 67vh;">
-          <q-toolbar class="text-black">
-            <q-btn round flat class="q-pa-sm">
-              <q-avatar size="80px">
-                <img :src="selected_contact.avatar" />
-              </q-avatar>
-            </q-btn>
-
-            <q-item class="q-subtitle-1 q-pl-md">
-              <q-item-section>
-                <q-item-label lines="1">{{ selected_contact.name }}</q-item-label>
-                <q-item-label caption lines="2">
-                  <span class="text-weight-bold">{{ selected_contact.position }}</span>
-                </q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-space />
-
-            <q-btn round flat icon="star_outline" color="yellow"> </q-btn>
-            <q-btn round flat icon="edit" />
-            <q-btn round flat icon="keyboard_backspace" @click="selected_contact = {}" />
-          </q-toolbar>
-          <q-separator></q-separator>
-
-          <div v-for="(detail, detail_index) in detail_list">
-            <contact-detail-item
-              :icon="detail.icon"
-              :text_color="detail.text_color"
-              :value="selected_contact[detail['field']]"
-              :label="detail.label"
-            ></contact-detail-item>
-
-            <q-separator inset="item" v-if="detail_index != detail_list.length - 1"></q-separator>
-          </div>
-        </q-card>
-      </transition>
+      </q-card>
     </div>
-  </q-page>
+
+    <div class="col-lg-8 q-pl-xs col-md-8 col-sm-12 col-xs-12">
+      <q-card class="no-border no-border" style="height: 67vh">
+        <q-toolbar class="text-black">
+          <q-btn round flat class="q-pa-sm">
+            <q-avatar size="80px">
+              <img :src="selected_contact.avatar" />
+            </q-avatar>
+          </q-btn>
+
+          <q-item class="q-subtitle-1 q-pl-md">
+            <q-item-section>
+              <q-item-label lines="1">{{ selected_contact.name }}</q-item-label>
+              <q-item-label caption lines="2">
+                <span class="text-weight-bold">{{ selected_contact.position }}</span>
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-space />
+
+          <q-btn round flat icon="star_outline" color="yellow"> </q-btn>
+          <q-btn round flat icon="edit" />
+        </q-toolbar>
+        <q-separator></q-separator>
+
+        <div v-for="(detail, detail_index) in detail_list">
+          <contact-detail-item
+            :icon="detail.icon"
+            :text_color="detail.text_color"
+            :value="selected_contact[detail['field']]"
+            :label="detail.label"
+          ></contact-detail-item>
+
+          <q-separator inset="item" v-if="detail_index != detail_list.length - 1"></q-separator>
+        </div>
+      </q-card>
+    </div>
+  </div>
+
+  <div v-else>
+    <div v-if="Object.keys(selected_contact).length == 0">
+      <q-tab-panels v-model="tab" animated class="bg-white" style="height: 60vh">
+        <q-tab-panel name="all" class="q-pa-none full-height">
+          <q-list class="">
+            <q-item-label class="text-center q-pa-sm">
+              <q-input dense rounded outlined v-model="search">
+                <template v-slot:append>
+                  <q-icon name="search" />
+                </template>
+              </q-input>
+            </q-item-label>
+            <q-item-label header class="text-center">{{ contacts_list.length }} CONTACTS</q-item-label>
+
+            <span v-for="(contact, index) in contacts_list" :key="index" @click="selected_contact = contact">
+              <contact-item :avatar="contact.avatar" :name="contact.name" :position="contact.position"></contact-item>
+            </span>
+          </q-list>
+        </q-tab-panel>
+
+        <q-tab-panel name="favorites" class="q-pa-none">
+          <q-list class="">
+            <q-item-label class="text-center q-pa-sm">
+              <q-input dense rounded outlined v-model="search">
+                <template v-slot:append>
+                  <q-icon name="search" />
+                </template>
+              </q-input>
+            </q-item-label>
+            <q-item-label header class="text-center">{{ favorites_list.length }} Favorites</q-item-label>
+
+            <span v-for="(favorite, index) in favorites_list" :key="index" @click="selected_contact = favorite">
+              <contact-item
+                :avatar="favorite.avatar"
+                :name="favorite.name"
+                :position="favorite.position"
+              ></contact-item>
+            </span>
+          </q-list>
+        </q-tab-panel>
+      </q-tab-panels>
+      <q-tabs v-model="tab" dense class="bg-grey-3" align="justify">
+        <q-tab name="all" icon="person" class="text-capitalize" label="All"></q-tab>
+        <q-tab name="favorites" icon="star" class="text-capitalize" label="Favorites"></q-tab>
+      </q-tabs>
+    </div>
+    <transition v-else appear enter-active-class="animated bounceInRight">
+      <q-card class="no-border no-border" style="height: 67vh">
+        <q-toolbar class="text-black">
+          <q-btn round flat class="q-pa-sm">
+            <q-avatar size="80px">
+              <img :src="selected_contact.avatar" />
+            </q-avatar>
+          </q-btn>
+
+          <q-item class="q-subtitle-1 q-pl-md">
+            <q-item-section>
+              <q-item-label lines="1">{{ selected_contact.name }}</q-item-label>
+              <q-item-label caption lines="2">
+                <span class="text-weight-bold">{{ selected_contact.position }}</span>
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-space />
+
+          <q-btn round flat icon="star_outline" color="yellow"> </q-btn>
+          <q-btn round flat icon="edit" />
+          <q-btn round flat icon="keyboard_backspace" @click="selected_contact = {}" />
+        </q-toolbar>
+        <q-separator></q-separator>
+
+        <div v-for="(detail, detail_index) in detail_list">
+          <contact-detail-item
+            :icon="detail.icon"
+            :text_color="detail.text_color"
+            :value="selected_contact[detail['field']]"
+            :label="detail.label"
+          ></contact-detail-item>
+
+          <q-separator inset="item" v-if="detail_index != detail_list.length - 1"></q-separator>
+        </div>
+      </q-card>
+    </transition>
+  </div>
 </template>
 
 <script lang="ts" setup>

@@ -1,10 +1,8 @@
 <template>
-  <q-page class="q-pa-sm">
-    <div class="row">
-      <div id="myMap" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="height: 85vh;"></div>
-      <div id="pano" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="height: 85vh;"></div>
-    </div>
-  </q-page>
+  <div class="row">
+    <div id="myMap" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="height: 85vh"></div>
+    <div id="pano" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="height: 85vh"></div>
+  </div>
 </template>
 
 <script lang="ts" setup>

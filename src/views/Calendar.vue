@@ -1,5 +1,5 @@
 <template>
-  <h5>Calendar</h5>
+  <h5 class="q-mt-none">Calendar</h5>
   <Qalendar :events="events" style="height: 300px" />
 </template>
 

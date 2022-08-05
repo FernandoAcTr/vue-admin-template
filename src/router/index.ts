@@ -64,7 +64,7 @@ const router = createRouter({
     {
       path: '/pagination',
       name: Routes.Pagination,
-      component: () => import('../views/Pagination.vue'),
+      component: () => import('../views/Pagination/Pagination.vue'),
     },
     {
       path: '/products',

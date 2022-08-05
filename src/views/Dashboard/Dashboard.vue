@@ -1,23 +1,21 @@
 <template>
-  <q-page class="q-pa-sm">
-    <h5 class="q-mt-none">Dashboard</h5>
-    <card-social icon_position="left" />
-    <card-social icon_position="right" class="q-mt-sm" />
+  <h5 class="q-mt-none">Dashboard</h5>
+  <card-social icon_position="left" />
+  <card-social icon_position="right" class="q-mt-sm" />
 
-    <card-charts />
+  <card-charts />
 
-    <div class="row q-col-gutter-sm q-py-sm">
-      <tab-social />
-      <card-with-image />
-    </div>
+  <div class="row q-col-gutter-sm q-py-sm">
+    <tab-social />
+    <card-with-image />
+  </div>
 
-    <div class="row q-col-gutter-sm q-pb-sm">
-      <todo-list />
-      <card-time-line />
-    </div>
+  <div class="row q-col-gutter-sm q-pb-sm">
+    <todo-list />
+    <card-time-line />
+  </div>
 
-    <table-visits />
-  </q-page>
+  <table-visits />
 </template>
 
 <script setup lang="ts">

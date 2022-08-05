@@ -1,7 +1,5 @@
 <template>
-  <q-page class="q-pa-sm">
-    <div id="myMap2" style="height: 85vh"></div>
-  </q-page>
+  <div id="myMap2" style="height: 85vh"></div>
 </template>
 
 <script lang="ts" setup>
