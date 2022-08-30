@@ -19,6 +19,7 @@
       position: myLatLng,
       map: mapData,
       title: 'Hello World!',
+      icon: "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png"
     })
   }
 
